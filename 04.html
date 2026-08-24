@@ -154,9 +154,9 @@
     </p>
 
     <div class="meta">
-        <div>ชื่อ-นามสกุล: </div>
-        <div>รหัสนักศึกษา: </div>
-        <div>ชั้นปี/ห้อง: </div>
+        <div>ชื่อ-นามสกุล: นายกิติกร เทศธรรม</div>
+        <div>รหัสนักศึกษา: 674259003</div>
+        <div>ชั้นปี/ห้อง: 67/50</div>
         <div>คะแนน: /50</div>
     </div>
 
@@ -178,9 +178,9 @@
         </p>
     </div>
     <div class="q"><p>1) คุณรู้สึกอย่างไรกับเรื่องนี้ และใครบ้างที่รับผลจาก “โค้ดที่เปลี่ยนไม่ได้” ทั้งที่ไม่ได้เป็นคนเขียนโค้ด</p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">รู้สึกสะท้อนใจที่ปัญหาทางเทคนิคส่งผลกระทบโดยตรงต่อชีวิตจริงและค่าใช้จ่ายของคนทั่วไป</div><div class="line">นักศึกษา: ต้องเสียเวลา ยืมบัตรผู้อื่น และต้องแบกรับค่าปรับจ่าย</div></div>
     <div class="q"><p>2) ถ้าคุณเป็นเจ้าของระบบ คุณจะกลัวอะไรมากกว่ากัน ระหว่าง “โค้ดยาวขึ้น” กับ “โค้ดที่แก้ทีไรพังทุกที” เพราะเหตุใด</p>
-        <div class="line"></div></div>
+        <div class="line">ผมกลัวโค้ดที่แก้ทีไรพังทุกทีมากกว่าเพราะแสดงถึงการผูกติดกันแน่นทำให้ค่าใช้จ่ายและเวลาในการดูแลรักษาสูงมาก</div></div>
 
     <!-- Mentor: Storytelling + Decoding Success -->
     <h2> เรื่องเล่าจากพี่เลี้ยง: “คืนที่เพิ่มช่องทางชำระเงินไม่ทัน”</h2>
@@ -219,11 +219,11 @@ class PaymentGateway:
     </div>
 
     <div class="q"><p>1) หากเพิ่ม TrueMoney Wallet โค้ดส่วนใดต้องถูกแก้ไข และความเสี่ยงของการแก้โค้ดเดิมคืออะไร</p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">โค้ดส่วนที่ต้องแก้ไข: เมธอด checkout ในคลาส PaymentGateway โดยต้องเพิ่มเงื่อนไข elif type_ == 'truemoney'</div><div class="line">อาจเผลอไปกระทบเงื่อนไขเดิมของ credit หรือ promptpay ทำให้ระบบเดิมที่เคยทำงานได้ปกติพังลง</div></div>
     <div class="q"><p>2) คุณจะออกแบบอย่างไรให้ Gateway “ไม่ต้องรู้จัก” วิธีชำระเงินแม้แต่ชนิดเดียว แต่ยังเรียกเก็บเงินได้ถูกต้อง</p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">สร้าง Interface หรือ Abstract Class แม่ขึ้นมา เช่น PaymentMethod(ABC) ที่มีเมธอดบังคับ</div><div class="line">แยกช่องทางการชำระเงินแต่ละชนิดเป็นคลาสของตัวเอง</div></div>
     <div class="q"><p>3) ลองให้ AI เสนอวิธีกำจัด if-elif ในโค้ดนี้มา 3 วิธี แล้วถกกับเพื่อน: วิธีใดน่าเชื่อถือที่สุด และคำตอบของ AI เชื่อถือได้มากน้อยเพียงใด (ฟังเพื่อนให้จบก่อนสรุปนะ)</p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">1.Strategy Pattern (Polymorphism): ส่งออบเจกต์ของช่องทางชำระเงิน เข้ามาใน Gateway แล้วเรียก pay(amount)</div><div class="line">2.Dictionary Dispatch Table (Registry Pattern): ใช้ Dictionary เก็บฟังก์ชันหรือคลาสสำหรับจัดการการจ่ายเงิน</div><div class="line">3.Factory Method / Factory Pattern: สร้างคลาส Factory แยกต่างหากเพื่อรับหน้าที่สร้างออบเจกต์การชำระเงินตามชื่อประเภท</div><div class="line">เชื่อถือได้สูงเนื่องจากเป็น Design Pattern มาตรฐานสากลสำหรับระบบ Payment ทั่วโลก แต่ในสถานการณ์จริง การเลือกใช้ต้องดูขนาดของระบบ</div></div>
 
     <!-- Teacher: Knowledge Box (5%) -->
     <div class="knowledge">
@@ -285,17 +285,17 @@ classDiagram
 
     <h2>ส่วนที่ 1: อ่านแผนภาพแล้วตอบคำถาม (10 คะแนน)</h2>
     <div class="q"><p>1) «ABC» PaymentMethod ที่มีเมธอด <code>+pay(amount) : str</code> ทำหน้าที่อะไรในระบบ <span class="pts">2 คะแนน</span></p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">ทำหน้าที่เป็น Abstract Base Class กำหนดข้อตกลงมาตรฐานกลางว่า ทุกคลาสช่องทางการชำระเงินต้องมีเมธอด pay(amount)</div><div class="line"></div></div>
     <div class="q"><p>2) เหตุใด CreditCardPayment และ PromptPayPayment จึงเสียบเข้ากับ Gateway เดียวกันได้ สอดคล้องกับแนวคิดใด <span class="pts">2 คะแนน</span></p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">เพราะทั้งสองคลาสทำตามสัญญาเดียวกัน โดยสืบทอดมาจาก PaymentMethod</div><div class="line">Polymorphism, Strategy Pattern, และ Liskov Substitution Principle (LSP)</div></div>
     <div class="q"><p>3) ลูกศร “injected” จาก PaymentGateway ชี้ไปยัง PaymentMethod หมายถึงอะไร และเหตุใด Gateway จึงห้ามสร้าง object วิธีชำระเงินเองภายใน <span class="pts">2 คะแนน</span></p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">หมายถึง Dependency Injection (DI) คือการส่งอ็อบเจกต์ของช่องทางชำระเงินจากภายนอกเข้ามาให้ PaymentGateway</div><div class="line">เพื่อไม่ให้เกิด Tight Coupling ตามหลัก Dependency Inversion Principle (DIP) หากสร้างเอง Gateway</div></div>
     <div class="q"><p>4) ลูกศร “raises” ชี้ไปยัง ValueError หมายถึงการตรวจสอบใด และอยู่ในเมธอดใด <span class="pts">1 คะแนน</span></p>
-        <div class="line"></div></div>
+        <div class="line">ตรวจสอบความถูกต้องของจำนวนเงินที่ชำระ เช่น ตรวจสอบว่ายอดเงินต้องมากกว่าศูนย์</div></div>
     <div class="q"><p>5) หากเพิ่มช่องทางชำระ TrueMoney Wallet ในอนาคต โค้ดส่วนใดต้องแก้ไขบ้าง (OCP) <span class="pts">2 คะแนน</span></p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">ไม่มีโค้ดเดิมใน PaymentGateway หรือคลาสอื่นต้องแก้ไขเลย ตามหลัก Open/Closed Principle</div><div class="line">สร้างคลาสใหม่ class TrueMoneyPayment(PaymentMethod)แล้ว implement เมธอด pay ของตนเอง</div></div>
     <div class="q"><p>6) พารามิเตอร์ <code>card_last4: str = "0000"</code> ที่เป็นค่าเริ่มต้นมีประโยชน์อย่างไร <span class="pts">1 คะแนน</span></p>
-        <div class="line"></div></div>
+        <div class="line">เพื่อเป็น Default Value (ค่าเริ่มต้น) ป้องกันไม่ให้โปรแกรมเกิด Error ในกรณีที่ผู้เรียกใช้งานไม่ได้ส่งค่าเลขท้าย 4 หลักเข้ามา</div></div>
 
     <h2>ส่วนที่ 2: วิเคราะห์โค้ด (10 คะแนน)</h2>
 <pre class="code">
@@ -334,13 +334,13 @@ gateway = PaymentGateway(PromptPayPayment())
 print(gateway.checkout(1500.00))
 </pre>
     <div class="q"><p>1) บรรทัดใดแสดง Dependency Injection จงอธิบาย <span class="pts">2 คะแนน</span></p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">def __init__(self, method: PaymentMethod):self._method = method</div><div class="line">เป็นแบบ Constructor Injection โดย PaymentGateway ไม่ได้สร้างออบเจกต์ของช่องทางชำระเงินขึ้นมาเองภายใน</div></div>
     <div class="q"><p>2) ผลลัพธ์ของ <code>gateway.checkout(1500.00)</code> ในโค้ดบรรทัดสุดท้ายคืออะไร <span class="pts">3 คะแนน</span></p>
-        <div class="line"></div></div>
+        <div class="line">ชำระ 1500.00 บาทด้วย PromptPay</div></div>
     <div class="q"><p>3) หากเรียก <code>gateway.checkout(-100)</code> จะเกิดอะไรขึ้น เพราะเหตุใด <span class="pts">2 คะแนน</span></p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">ผลที่เกิดขึ้นจะทำให้โปรแกรมจะหยุดทำงานและโยนข้อผิดพลาด</div><div class="line">เพราะภายในเมธอด checkout มีการตรวจสอบเงื่อนไขความถูกต้องของข้อมูล (Validation)</div></div>
     <div class="q"><p>4) หากภายใน checkout มีโค้ด <code>return CreditCardPayment().pay(amount)</code> โดยตรง จะผิดหลักการใด และส่งผลเสียอย่างไร <span class="pts">3 คะแนน</span></p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">ผิดหลัก Open/Closed Principle ปิดกั้นการขยายฟังก์ชัน ทำให้ไม่สามารถเปลี่ยนไปใช้ช่องทางอื่นได้</div><div class="line">สูญเสียความยืดหยุ่นและการนำกลับมาใช้ซ้ำ รวมถึงทำให้การเขียน Unit Test ทำได้ยากเพราะไม่สามารถ Mock ช่องทางการจ่ายเงินได้</div></div>
 
     <h2>ส่วนที่ 3: เติมโค้ดในช่องว่าง (12 คะแนน)</h2>
 <pre class="code">
@@ -369,9 +369,9 @@ class PaymentGateway:
     <table>
         <thead><tr><th>ช่องที่</th><th>คำตอบ</th><th>ช่องที่</th><th>คำตอบ</th></tr></thead>
         <tbody>
-            <tr><td>(1)</td><td class="fill"></td><td>(4)</td><td class="fill"></td></tr>
-            <tr><td>(2)</td><td class="fill"></td><td>(5)</td><td class="fill"></td></tr>
-            <tr><td>(3)</td><td class="fill"></td><td>(6)</td><td class="fill"></td></tr>
+            <tr><td>(1)</td><td class="fill">ABC</td><td>(4)</td><td class="fill">method</td></tr>
+            <tr><td>(2)</td><td class="fill">abstractmethod	(</td><td>(5)</td><td class="fill"><=</td></tr>
+            <tr><td>(3)</td><td class="fill">str</td><td>(6)</td><td class="fill">pay</td></tr>
         </tbody>
     </table>
 
@@ -379,35 +379,35 @@ class PaymentGateway:
     <table>
         <thead><tr><th style="width:42%;">Test Case</th><th>ผลลัพธ์ที่คาดหวัง</th><th>ผลลัพธ์จริง</th><th style="width:10%;">ผ่าน?</th></tr></thead>
         <tbody>
-            <tr><td>PaymentGateway(PromptPayPayment()) แล้ว checkout(1500)</td><td class="fill"></td><td class="fill"></td><td class="fill"></td></tr>
-            <tr><td>PaymentGateway(CreditCardPayment("1234")) แล้ว checkout(250.50)</td><td class="fill"></td><td class="fill"></td><td class="fill"></td></tr>
-            <tr><td>checkout(0)</td><td class="fill"></td><td class="fill"></td><td class="fill"></td></tr>
-            <tr><td>checkout(-100)</td><td class="fill"></td><td class="fill"></td><td class="fill"></td></tr>
-            <tr><td>สลับเป็น PaymentGateway(CreditCardPayment()) แล้ว checkout(99)</td><td class="fill"></td><td class="fill"></td><td class="fill"></td></tr>
-            <tr><td>เพิ่มคลาส TrueMoneyPayment(PaymentMethod) แล้วใช้กับ Gateway เดิม</td><td class="fill"></td><td class="fill"></td><td class="fill"></td></tr>
+            <tr><td>PaymentGateway(PromptPayPayment()) แล้ว checkout(1500)</td><td class="fill">ชำระ 1500.00 บาทด้วย PromptPay</td><td class="fill">ชำระ 1500.00 บาทด้วย PromptPay</td><td class="fill">ผ่าน</td></tr>
+            <tr><td>PaymentGateway(CreditCardPayment("1234")) แล้ว checkout(250.50)</td><td class="fill">ชำระ 250.50 บาทด้วยบัตรเครดิต ****1234</td><td class="fill">ชำระ 250.50 บาทด้วยบัตรเครดิต ****1234</td><td class="fill">ผ่าน</td></tr>
+            <tr><td>checkout(0)</td><td class="fill">เกิด ValueError: Amount must be positive.</td><td class="fill">ValueError: Amount must be positive.</td><td class="fill">ผ่าน</td></tr>
+            <tr><td>checkout(-100)</td><td class="fill">เกิดValueError: Amount must be positive.</td><td class="fill">ValueError: Amount must be positive.</td><td class="fill">ผ่าน</td></tr>
+            <tr><td>สลับเป็น PaymentGateway(CreditCardPayment()) แล้ว checkout(99)</td><td class="fill">ชำระ 99.00 บาทด้วยบัตรเครดิต ****0000</td><td class="fill">ชำระ 99.00 บาทด้วยบัตรเครดิต ****0000</td><td class="fill">ผ่าน</td></tr>
+            <tr><td>เพิ่มคลาส TrueMoneyPayment(PaymentMethod) แล้วใช้กับ Gateway เดิม</td><td class="fill">ช้งานได้ทันทีโดยไม่ต้องแก้โค้ด Gateway เดิม</td><td class="fill">ทำงานได้สำเร็จตามพฤติกรรมของคลาสใหม่</td><td class="fill">ผ่าน</td></tr>
         </tbody>
     </table>
 
     <h2>ส่วนที่ 5: สะท้อนคิดเชิงออกแบบ OOAD (6 คะแนน)</h2>
     <div class="q"><p>1) ระบบนี้แสดง Protected Variations อย่างไร “จุดที่เปลี่ยนแปลง” คืออะไร และถูกปกป้องด้วยกลไกใด <span class="pts">2 คะแนน</span></p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">มีรูปแบบและกระบวนการทำงานของ ช่องทางการชำระเงิน (Payment Methods) เช่น บัตรเครดิต, PromptPay, TrueMoney</div><div class="line">ปกป้องด้วย Interface / Abstraction (PaymentMethod(ABC)) ร่วมกับ Polymorphism ทำให้โค้ดหลักใน PaymentGateway</div></div>
     <div class="q"><p>2) การพึ่งพา ABC (PaymentMethod) แทน concrete class ดีกว่าอย่างไรในแง่การทดสอบด้วย Fake/Mock <span class="pts">2 คะแนน</span></p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">สร้าง Test Double ได้ง่ายและปลอดภัย: สามารถสร้างคลาสจำลอง เช่น class MockPayment(PaymentMethod)</div><div class="line">ทำให้การทดสอบ PaymentGateway มุ่งเน้นไปที่ Business Logic ของตัวมันเอง</div></div>
     <div class="q"><p>3) หากมหาวิทยาลัยเพิ่มนโยบาย “ผ่อนชำระค่าเทอม 3 งวด” นักศึกษาจะออกแบบส่วนเพิ่มเติมอย่างไร โดยไม่ต้องแก้ PaymentGateway <span class="pts">2 คะแนน</span></p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">สร้างคลาสใหม่ที่สืบทอดจาก PaymentMethod</div><div class="line">ใช้แนวคิด Decorator Pattern หรือสร้างเป็นช่องทางใหม่ InstallmentPayment(PaymentMethod) ที่รับช่วงผ่อนและคำนวณงวด</div></div>
 
     <!-- Facilitator: Future -->
     <h2><span class="tag3f">Future</span> นำสิ่งค้นพบไปสู่อนาคต</h2>
     <div class="q"><p>1) ในโปรเจกต์ Python ถัดไปของคุณ ส่วนใดคือ “ช่องทางชำระเงินคนใหม่” (ของที่เปลี่ยนบ่อยที่สุด) และคุณจะห่อมันไว้หลัง abstraction อย่างไร</p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">ระบบการแจ้งเตือนผู้ใช้งาน (Notification System) เช่น Email, SMS, LINE Notify หรือ Telegram Bot</div><div class="line">สร้าง Abstract Base Class ชื่อ Notifier(ABC) กำหนด @abstractmethod def send(self, recipient: str, message: str) -> bool</div></div>
     <div class="q"><p>2) เขียน commitments สั้น ๆ 2 ข้อ เกี่ยวกับนิสัย “รับ dependency จากภายนอก ไม่สร้างเองภายใน” ที่คุณจะนำไปใช้จริง</p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">ไม่ Hardcode จะเลิกสร้างออบเจกต์ของคลาสภายนอกภายในคอนสตรัคเตอร์ แต่จะเปลี่ยนมารับเข้ามาผ่านพารามิเตอร์</div><div class="line">ออกแบบโดยพึ่งพา Interface ไม่ใช่ Concrete Class จะกำหนด Type Hint และการทำงานของระบบหลักให้อิงกับ Abstract Base Class</div></div>
 
     <!-- Coach: Reflect -->
     <div class="coach">
         <strong>🪞 มุมสะท้อนคิดของโค้ช:</strong>
         <div class="q"><p>ชมความพยายามของตัวเอง 1 เรื่อง แล้วบันทึก “คำถามที่ยังค้างอยู่ในหัวคุณ” เกี่ยวกับ Strategy หรือ DI</p>
-            <div class="line"></div><div class="line"></div></div>
+            <div class="line">ในระบบขนาดใหญ่ที่มี Dependency ซับซ้อนซ้อนกันหลายชั้น เราควรนำ DI Framework / Container</div><div class="line">มาช่วยจัดการประกอบ Object อย่างไรให้เป็นระเบียบและไม่สับสน</div></div>
     </div>
 
     <h2>เกณฑ์การให้คะแนน</h2>

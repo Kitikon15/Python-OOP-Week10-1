@@ -178,9 +178,9 @@
         </p>
     </div>
     <div class="q"><p>1) คุณรู้สึกอย่างไรกับ “ความเงียบ” ของโค้ดที่ข้ามรูปทรงใหม่ไปโดยไม่บอกใคร และน่ากลัวกว่าการพังเสียงดังอย่างไร</p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">รู้สึกว่าเป็นข้อผิดพลาดแบบ Silent Failure ที่อันตรายมาก เพราะระบบไม่ส่งสัญญาณเตือนใดๆ ทำให้ทุกคนคิดว่าระบบทำงานถูก</div><div class="line">การพังเสียงดัง Fail Loudly เมื่อโค้ดโยน Error ออกมา โปรแกรมเมอร์จะรู้ทันทีและหยุดแก้ไขได้ก่อนนำผลลัพธ์ไปใช้งานจริง</div></div>
     <div class="q"><p>2) หากชมรมเพิ่มรูปทรงใหม่ทุกเดือน ใครจะต้องเหนื่อยที่สุด — คนออกแบบโค้ด หรือคนตามแก้โค้ด</p>
-        <div class="line"></div></div>
+        <div class="line">คนตามแก้โค้ด เหนื่อยที่สุด เพราะโค้ดแบบเดิม (if-elif) ผิดหลัก Open-Closed Principle (OCP): ทุกครั้งที่มีรูปทรงใหม่ คนตามแก้</div><div class="line">โค้ดจะต้องเปิดไฟล์เดิมเพื่อไล่เพิ่มเงื่อนไข elif</div></div>
 
     <!-- Mentor: Storytelling + Decoding Success -->
     <h2> เรื่องเล่าจากพี่เลี้ยง: “isinstance 27 แห่ง”</h2>
@@ -239,11 +239,12 @@ def total_area(shapes) -> float:
     </div>
 
     <div class="q"><p>1) หากเพิ่ม Triangle เข้าในระบบ ผลลัพธ์จะเป็นอย่างไร และเหตุใดความผิดพลาดแบบนี้จึงถูกค้นพบยาก</p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">พื้นที่ของ Triangle จะไม่ถูกนำไปรวมใน total (ค่าพื้นที่ของสามเหลี่ยมจะถูกมองข้ามไป เสมือนเป็น 0</div><div class="line">เพราะ โค้ดทำงานสำเร็จจนจบโดยไม่เกิด Crash หรือ Runtime Error Silent Failure หากไม่ตรวจสอบตัวเลขผลลัพธ์เทียบกับข้อมูลจริง</div></div>
     <div class="q"><p>2) คุณจะออกแบบอย่างไรให้ “การลืมรูปทรงใหม่” เป็นไปไม่ได้เลย (ทำให้ระบบส่งเสียงเมื่อมีสิ่งที่ไม่รู้จัก)</p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line"> Fail Fast ด้วย else raise ในฟังก์ชันเดิม ให้เพิ่มเงื่อนไข else เพื่อโยน Error ทันทีเมื่อเจอ Object ที่ระบบไม่รู้จัก</div><div class="line">else:
+    raise TypeError(f"Unknown shape type: {type(shape).__name__}")</div></div>
     <div class="q"><p>3) ลองให้ AI เสนอวิธีกำจัด if-isinstance ในโค้ดนี้มา 3 วิธี แล้วถกกับเพื่อน: วิธีใดน่าเชื่อถือที่สุด และคำตอบของ AI เชื่อถือได้มากน้อยเพียงใด (ฟังเพื่อนให้จบก่อนสรุปนะ)</p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">1.Polymorphism (Duck Typing): เรียก shape.area() โดยตรงในลูป for โดยไม่ต้องเช็กประเภท (total += shape.area())</div><div class="line">2.Abstract Base Class (ABC): สร้างคลาสแม่ Shape(ABC) ที่มี @abstractmethod def area(self) เพื่อการันตีว่าทุกรูปทรง</div><div class="line">3.Pattern Matching with Exhaustiveness Check (Python 3.10+): ใช้คำสั่ง match-case และดัก case _: เพื่อแจ้งเตือน</div><div class="line">วิธีที่ 2 (Abstract Base Class) ร่วมกับ วิธีที่ 1 (Polymorphism) เพราะเป็นไปตามหลัก Object-Oriented Design (OCP) บังคับโครงสร้างชัดเจนตั้งแต่ตอนเขียนโค้ด</div></div>
 
     <!-- Teacher: Knowledge Box (5%) -->
     <div class="knowledge">
@@ -295,17 +296,17 @@ classDiagram
 
     <h2>ส่วนที่ 1: อ่านแผนภาพแล้วตอบคำถาม (10 คะแนน)</h2>
     <div class="q"><p>1) «ABC» ที่กำกับคลาส Shape หมายถึงอะไรใน Python และ <code>@abstractmethod</code> มีบทบาทอย่างไร <span class="pts">2 คะแนน</span></p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">«ABC» (Abstract Base Class): หมายถึงคลาสแม่แบบเชิงนามธรรม ที่สร้างขึ้นเพื่อให้คลาสอื่นนำไปสืบทอด (Inherit)</div><div class="line">@abstractmethod: ทำหน้าที่เป็นสัญญา (Contract) บังคับว่าคลาสลูกทุกคลาสที่สืบทอดไป ต้อง เขียนโค้ดเมธอดนั้น (Implement)</div></div>
     <div class="q"><p>2) ลูกศร “implements” จาก Circle และ Rectangle ชี้ไปยัง Shape หมายถึงอะไรในเชิงโค้ด Python <span class="pts">2 คะแนน</span></p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">การที่คลาส Circle และ Rectangle ทำการสืบทอดคลาส Shape (Inheritance) โดยเขียนในไวยากรณ์ class Circle(Shape)</div><div class="line">class Rectangle(Shape): พร้อมกับเขียนการทำงานของเมธอด area() เพื่อเติมเต็มพฤติกรรมตามที่ Shape</div></div>
     <div class="q"><p>3) เหตุใดโค้ดหลักจึงไม่ต้องใช้ if หรือ isinstance ตรวจชนิดของคลาสก่อนเรียก area() <span class="pts">2 คะแนน</span></p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">เพราะเป็นไปตามหลัก Polymorphism โดยคลาสลูกทุกตัวมี Interface และเมธอด area()ที่มีชื่อและรูปแบบเหมือนกัน โค้ดหลักจึง</div><div class="line">สามารถสั่ง shape.area() ได้ทันที โดยแต่ละออบเจกต์จะรู้หน้าที่และคำนวณสูตรพื้นที่ของตัวเองโดยอัตโนมัติ</div></div>
     <div class="q"><p>4) การเก็บข้อมูลเป็น <code>_radius</code>, <code>_width</code>, <code>_height</code> พร้อมตรวจสอบค่าใน <code>__init__</code> มีประโยชน์อย่างไร <span class="pts">2 คะแนน</span></p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">การใส่ Underscore (_) ช่วยซ่อน Attribute ภายในเพื่อป้องกันการเข้าถึงและแก้ไขค่าโดยตรงจากภายนอก</div><div class="line">Validation: การตรวจค่าใน __init__ ช่วยรับประกันว่าออบเจกต์จะมีสถานะที่ถูกต้องและสมบูรณ์</div></div>
     <div class="q"><p>5) หากต้องการเพิ่มรูปทรง Triangle ในอนาคต โค้ดส่วนใดต้องแก้ไขบ้าง (OCP) <span class="pts">1 คะแนน</span></p>
-        <div class="line"></div></div>
+        <div class="line">ไม่มีโค้ดส่วนคำนวณหลักเดิมต้องแก้ไขเลยตามหลัก Open-Closed Principle (OCP) เราเพียงแค่ สร้างคลาสใหม่</div></div>
     <div class="q"><p>6) หากสร้างคลาสที่สืบทอด Shape แต่ไม่ implement เมธอด area() จะเกิดอะไรขึ้นเมื่อพยายามสร้างวัตถุ <span class="pts">1 คะแนน</span></p>
-        <div class="line"></div></div>
+        <div class="line">โปรแกรมจะโยนข้อผิดพลาด TypeError: Can't instantiate abstract class ... with abstract method area ทันทีในขั้นตอนสร้างออบเจกต์ (Instantiation)</div></div>
 
     <h2>ส่วนที่ 2: วิเคราะห์โค้ด (10 คะแนน)</h2>
 <pre class="code">
@@ -344,13 +345,13 @@ total_area = sum(shape.area() for shape in promotion_media)
 print(f"พื้นที่สื่อประชาสัมพันธ์รวม: {total_area:.2f} ตารางเมตร")
 </pre>
     <div class="q"><p>1) บรรทัดใดในโค้ดหลักที่แสดง Polymorphism จงอธิบายการทำงาน <span class="pts">3 คะแนน</span></p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">total_area = sum(shape.area() for shape in promotion_media)</div><div class="line">โค้ดเรียกใช้เมธอด .area() ของแต่ละออบเจกต์ในลิสต์ promotion_media ผ่าน Interface เดียวกัน</div></div>
     <div class="q"><p>2) จงคำนวณพื้นที่ของ Circle รัศมี 0.10 และ Rectangle ขนาด 1.20 × 0.80 แล้วหาพื้นที่รวม (แสดงวิธีทำ) <span class="pts">3 คะแนน</span></p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">Circle: π × 0.10² ≈ 0.0314 ตร.ม. | Rectangle: 1.20 × 0.80 = 0.96 ตร.ม.</div><div class="line">พื้นที่รวม = 0.0314 + 0.96 = 0.9914 ตร.ม. (แสดงผล :.2f ได้ 0.99 ตารางเมตร)</div></div>
     <div class="q"><p>3) การเรียก <code>Circle(-5)</code> จะเกิดอะไรขึ้น และเหตุใดจึงต้องตรวจสอบค่าใน <code>__init__</code> <span class="pts">2 คะแนน</span></p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">โปรแกรมจะหยุดทำงานและโยน Exception ชนิด ValueError: Radius cannot be negative</div><div class="line">เพื่อป้องกันการสร้างวัตถุที่มีสถานะไม่ถูกต้อง (Invalid State) ตั้งแต่เริ่มต้น (Fail-Fast) ทำให้มั่นใจได้ว่าข้อมูลของออบเจกต์</div></div>
     <div class="q"><p>4) หาก Circle ไม่สืบทอด Shape แต่ยังมีเมธอด area() อยู่ โค้ดหลักจะยังทำงานได้หรือไม่ เพราะแนวคิดใดของ Python <span class="pts">2 คะแนน</span></p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">ยังทำงานได้ตามปกติ</div><div class="line">แนวคิด Duck Typing</div></div>
 
     <h2>ส่วนที่ 3: เติมโค้ดในช่องว่าง (12 คะแนน)</h2>
 <pre class="code">
@@ -385,9 +386,9 @@ total_area = (6)________(shape.area() for shape in promotion_media)
     <table>
         <thead><tr><th>ช่องที่</th><th>คำตอบ</th><th>ช่องที่</th><th>คำตอบ</th></tr></thead>
         <tbody>
-            <tr><td>(1)</td><td class="fill"></td><td>(4)</td><td class="fill"></td></tr>
-            <tr><td>(2)</td><td class="fill"></td><td>(5)</td><td class="fill"></td></tr>
-            <tr><td>(3)</td><td class="fill"></td><td>(6)</td><td class="fill"></td></tr>
+            <tr><td>(1)</td><td class="fill">abstractmethod</td><td>(4)</td><td class="fill">pi</td></tr>
+            <tr><td>(2)</td><td class="fill">abstractmethod</td><td>(5)</td><td class="fill">*</td></tr>
+            <tr><td>(3)</td><td class="fill">Shape</td><td>(6)</td><td class="fill">sum</td></tr>
         </tbody>
     </table>
 
@@ -395,35 +396,35 @@ total_area = (6)________(shape.area() for shape in promotion_media)
     <table>
         <thead><tr><th style="width:42%;">Test Case</th><th>ผลลัพธ์ที่คาดหวัง</th><th>ผลลัพธ์จริง</th><th style="width:10%;">ผ่าน?</th></tr></thead>
         <tbody>
-            <tr><td>Circle(2).area()</td><td class="fill"></td><td class="fill"></td><td class="fill"></td></tr>
-            <tr><td>Rectangle(3, 4).area()</td><td class="fill"></td><td class="fill"></td><td class="fill"></td></tr>
-            <tr><td>Circle(-5)</td><td class="fill"></td><td class="fill"></td><td class="fill"></td></tr>
-            <tr><td>Rectangle(3, -4)</td><td class="fill"></td><td class="fill"></td><td class="fill"></td></tr>
-            <tr><td>ผลรวม [Circle(0.10), Rectangle(1.20, 0.80)]</td><td class="fill"></td><td class="fill"></td><td class="fill"></td></tr>
-            <tr><td>class Triangle(Shape) โดยไม่ implement area() แล้วสร้างวัตถุ</td><td class="fill"></td><td class="fill"></td><td class="fill"></td></tr>
+            <tr><td>Circle(2).area()</td><td class="fill">12.566370614359172</td><td class="fill">12.566370614359172</td><td class="fill">ผ่าน</td></tr>
+            <tr><td>Rectangle(3, 4).area()</td><td class="fill">12.0</td><td class="fill">12.0</td><td class="fill">ผ่าน</td></tr>
+            <tr><td>Circle(-5)</td><td class="fill">เกิด ValueError: Radius cannot be negative.</td><td class="fill">ValueError: Radius cannot be negative.</td><td class="fill">ผ่าน</td></tr>
+            <tr><td>Rectangle(3, -4)</td><td class="fill">เกิด ValueError: Width and height cannot be negative.</td><td class="fill">ValueError: Width and height cannot be negative.</td><td class="fill">ผ่าน</td></tr>
+            <tr><td>ผลรวม [Circle(0.10), Rectangle(1.20, 0.80)]</td><td class="fill">0.9914159... (แสดงผล 0.99)</td><td class="fill">0.9914159... (แสดงผล 0.99)</td><td class="fill">ผ่าน</td></tr>
+            <tr><td>class Triangle(Shape) โดยไม่ implement area() แล้วสร้างวัตถุ</td><td class="fill">เกิด TypeError: Can't instantiate abstract class Triangle with abstract method area</td><td class="fill">TypeError: Can't instantiate abstract class Triangle with abstract method area</td><td class="fill">ผ่าน</td></tr>
         </tbody>
     </table>
 
     <h2>ส่วนที่ 5: สะท้อนคิดเชิงออกแบบ OOAD (6 คะแนน)</h2>
     <div class="q"><p>1) ระบบนี้สอดคล้องกับ Open/Closed Principle อย่างไร หากเพิ่ม Triangle โค้ดหลักต้องแก้ไขหรือไม่ <span class="pts">2 คะแนน</span></p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">เปิดให้ขยายฟังก์ชันการทำงานใหม่ได้โดยไม่ต้องกลับไปแก้ไขโค้ดเดิม</div><div class="line">โค้ดหลักไม่ต้องแก้ไขเลย เพียงแค่สร้างคลาสใหม่</div></div>
     <div class="q"><p>2) Circle และ Rectangle สอดคล้องกับ Liskov Substitution Principle อย่างไร <span class="pts">2 คะแนน</span></p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">ทั้ง Circle และ Rectangle สืบทอดมาจากคลาสแม่ Shape และมีเมธอด area() -> float</div><div class="line">ทำให้สามารถนำอ็อบเจกต์ของ Circle หรือ Rectangle ไปใช้งานแทนที่ตำแหน่งที่ต้องการ Shape</div></div>
     <div class="q"><p>3) เทียบ interface ของ PHP กับ ABC ของ Python ว่ามีจุดเหมือน/ต่างกันอย่างไร <span class="pts">2 คะแนน</span></p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">ทำหน้าที่เป็นแม่แบบ/ข้อกำหนด (Contract) บังคับให้คลาสลูกต้อง implement เมธอดที่กำหนดไว้ให้ครบถ้วน</div><div class="line">ไม่สามารถนำมาสร้างอ็อบเจกต์ (Instantiate) โดยตรงได้เหมือนกัน</div></div>
 
     <!-- Facilitator: Future -->
     <h2><span class="tag3f">Future</span> นำสิ่งค้นพบไปสู่อนาคต</h2>
     <div class="q"><p>1) ในโปรเจกต์ Python ถัดไปของคุณ จุดใดคือ “if-isinstance คนใหม่” ที่มีแนวโน้มจะงอกทุกเดือน และคุณจะออกแบบให้วัตถุ “ตอบเอง” อย่างไร</p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">ระบบช่องทางการชำระเงิน (Payment Methods) เช่น PromptPay, บัตรเครดิต, TrueMoney Wallet หรือการคำนวณส่วนลด</div><div class="line">สร้าง Abstract Base Class ชื่อ PaymentMethod(ABC) กำหนด @abstractmethod def process_payment(self, amount: float) -> bool</div></div>
     <div class="q"><p>2) เขียน commitments สั้น ๆ 2 ข้อ เกี่ยวกับวิธีออกแบบระบบให้ “เพิ่มของใหม่ได้โดยไม่แตะของเดิม”</p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">จะนิยามสัญญากลาง (Contract) ด้วย Abstract Base Class ทุกครั้งที่มีพฤติกรรมร่วม</div><div class="line">หลีกเลี่ยงการใช้ if-elif / isinstance เช็กประเภท: จะผลักดัน Logic</div></div>
 
     <!-- Coach: Reflect -->
     <div class="coach">
         <strong>🪞 มุมสะท้อนคิดของโค้ช:</strong>
         <div class="q"><p>ชมความพยายามของตัวเอง 1 เรื่อง แล้วบันทึก “คำถามที่ยังค้างอยู่ในหัวคุณ” เกี่ยวกับ polymorphism หรือการออกแบบ ABC</p>
-            <div class="line"></div><div class="line"></div></div>
+            <div class="line">เมื่อระบบขยายใหญ่ขึ้นมากๆ จนมีคลาสลูกจำนวนมาก เราควรใช้ Design Pattern แบบไหน</div><div class="line"></div></div>
     </div>
 
     <h2>เกณฑ์การให้คะแนน</h2>

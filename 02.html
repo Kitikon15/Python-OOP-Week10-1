@@ -154,9 +154,9 @@
     </p>
 
     <div class="meta">
-        <div>ชื่อ-นามสกุล: </div>
-        <div>รหัสนักศึกษา: </div>
-        <div>ชั้นปี/ห้อง: </div>
+        <div>ชื่อ-นามสกุล: นายกิติกร เทศธรรม</div>
+        <div>รหัสนักศึกษา: 674259003</div>
+        <div>ชั้นปี/ห้อง: 67/50</div>
         <div>คะแนน: /50</div>
     </div>
 
@@ -178,9 +178,9 @@
         </p>
     </div>
     <div class="q"><p>1) คุณรู้สึกอย่างไรกับเรื่องนี้ และเห็นใจใครมากที่สุด เพราะเหตุใด</p>
-        <div class="line"></div></div>
-    <div class="q"><p>2) ความผิดพลาดนี้ควรถูกป้องกันที่ “ความระวังของคนเขียนโค้ด” หรือที่ “การออกแบบระบบ” มากกว่ากัน เพราะเหตุใด</p>
-        <div class="line"></div></div>
+        <div class="line">รู้สึกเป็นที่น่าเห็นใจระหว่างนักศึกษากับป้าและสะท้อนถึงผลกระทบของระบบไอทีที่ทำงานผิดพลาด ซึ่งสร้างความเดือดร้อนให้</div><div class="line">คนใช้งานจริง ทั้งที่ทุกคนทำหน้าที่ตามปกติและไม่มีเจตนาที่จะโกง</div></div>
+        <div class="q"><p>2) ความผิดพลาดนี้ควรถูกป้องกันที่ “ความระวังของคนเขียนโค้ด” หรือที่ “การออกแบบระบบ” มากกว่ากัน เพราะเหตุใด</p>
+        <div class="line">ควรป้องกันที่ การออกแบบระบบ System Design มากกว่า เพราะทุกคนผิดพลาดกันได้การพึ่งพาเพียงความระวังของโปรแกรมเมอร์</div><div class="line">หรือโค้ดมีความเสี่ยงสูงอาจมีจุดที่หลงลืมได้</div></div>
 
     <!-- Mentor: Storytelling + Decoding Success -->
     <h2> เรื่องเล่าจากพี่เลี้ยง: “วันที่ระบบยอมให้ถอนเกินยอด”</h2>
@@ -222,11 +222,11 @@ print(a.balance)
     </div>
 
     <div class="q"><p>1) ผลลัพธ์สุดท้ายคืออะไร และช่องโหว่ใดบ้างที่คุณพบในโค้ดชุดนี้</p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">ผลลัพธ์สุดท้าย : -10499</div><div class="line">ขาด Encapsulation เข้าถึงข้อมูลได้โดยตรง และ ไม่มี Validation ในฟังก์ชัน withdraw</div></div>
     <div class="q"><p>2) หากต้องออกแบบใหม่ให้ “ถอนเกินยอดเป็นไปไม่ได้” คุณจะวางกฎไว้ที่ใดของระบบ เพราะเหตุใด</p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">ภายใน Domain / Business Logic ซ่อนตัวแปรให้เป็น Private เพราะ หลักการ Encapsulation ในคลาสควรมีหน้าที่ปกป้องตัว State และรักษาความถูกต้อง</div><div class="line"></div></div>
     <div class="q"><p>3) ลองให้ AI เสนอวิธีป้องกันยอดติดลบมา 3 วิธี แล้วถกกับเพื่อน: วิธีใดน่าเชื่อถือที่สุด และคำตอบของ AI เชื่อถือได้มากน้อยเพียงใด (ก่อนถก อย่าลืมฟังเพื่อนให้จบก่อนนะ)</p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">1.ซ่อนตัวแปรยอดเงินเป็น Private Attribute ไม่อนุญาตให้แก้ไขตรงๆ</div><div class="line">2.กำหนดกฎบังคับที่ Database Schema ด้วย CHECK เพื่อให้ฐานข้อมูลปฏิเสธการบันทึกข้อมูลทุกกรณีที่ทำให้ยอดติดลบ</div><div class="line">3.ไม่ใช้วิธีแก้ตัวเลขยอดเงินตรงๆ ในตาราง แต่ใช้ระบบบันทึกบัญชีคู่ (Ledger Entries) ที่มีเฉพาะรายการ Debit/Credit</div><div class="line">วิธีที่ 2 (Database Constraint + Lock) น่าเชื่อถือที่สุดในเชิงความปลอดภัย เพราะเป็นปราการด่านสุดท้าย ไม่ว่าโปรแกรมเมอร์จะ</div><div class="line">เขียนโค้ด Application ผิดพลาดยังไง ฐานข้อมูลก็จะไม่ยอมให้บันทึกค่าติดลบเด็ดขาด</div></div>
 
     <!-- Teacher: Knowledge Box (5%) -->
     <div class="knowledge">
@@ -284,17 +284,17 @@ classDiagram
 
     <h2>ส่วนที่ 1: อ่านแผนภาพแล้วตอบคำถาม (10 คะแนน)</h2>
     <div class="q"><p>1) สัญลักษณ์ <code>(property)</code> กำกับหลัง account_number และ balance หมายความว่าอย่างไร และเหตุใด balance จึงไม่มี setter <span class="pts">2 คะแนน</span></p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">การเข้าถึงข้อมูลผ่าน Getter เป็น Property/Read-only Attribute เพื่ออ่านค่าได้โดยตรงจากภายนอก</div><div class="line">เพราะถ้าไม่มี setter เพื่อป้องกันไม่ให้ภายนอกแก้ไขค่า balance โดยตรงตามใจชอบ</div></div>
     <div class="q"><p>2) สัญลักษณ์ + และ - หน้าสมาชิกหมายถึงอะไร และการตั้งชื่อ <code>_assert_positive</code> ด้วย underscore เดี่ยวสื่อความหมายว่าอย่างไร <span class="pts">2 คะแนน</span></p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">+ หมายถึง Public (สมาชิกที่ภายนอกคลาสสามารถเข้าถึงและเรียกใช้งานได้โดยตรง)</div><div class="line">- หมายถึง Private (สมาชิกที่สงวนไว้ใช้เฉพาะภายในคลาสเท่านั้น)</div><div class="line">การขึ้นต้นด้วย Underscore _ สื่อว่าเป็น Internal/Private Helper Method ที่ออกแบบไว้ให้ใช้เฉพาะภายในคลาสเอง</div></div>
     <div class="q"><p>3) “Domain Exception” คืออะไร ในแผนภาพคือคลาสใด และแตกต่างจากการใช้ ValueError อย่างไร <span class="pts">2 คะแนน</span></p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">คือ Exception ที่ถูกสร้างขึ้นมาเฉพาะเพื่อจัดการกับข้อผิดพลาดที่ผิดกฎเชิงธุรกิจ</div><div class="line">ValueError เป็น Built-in Exception ทั่วไปที่สื่อถึงค่าข้อมูลผิดประเภทหรือไม่สมเหตุสมผล</div></div>
     <div class="q"><p>4) ลูกศร “inherits” จาก InsufficientFundsError ชี้ไปยัง Exception หมายถึงอะไร และการสร้างคลาส Exception ของตัวเองมีประโยชน์อย่างไร <span class="pts">2 คะแนน</span></p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">การสืบทอดคุณสมบัติ (Inheritance) โดย InsufficientFundsError เป็นคลาสลูก (Subclass) ที่สืบทอดมาจากคลาสแม่ Exception</div><div class="line">สามารถดักจับข้อผิดพลาด (Catch) ได้เฉพาะเจาะจง ไม่ปะปนกับ Error ทั่วไป</div></div>
     <div class="q"><p>5) ลูกศร “target” ที่วนกลับไปยัง BankAccount เองหมายความว่าอย่างไร และเกี่ยวข้องกับเมธอดใด <span class="pts">1 คะแนน</span></p>
-        <div class="line"></div></div>
+        <div class="line">ความสัมพันธ์แบบ Self-Association หรือการอ้างอิงไปยังออบเจกต์อื่นที่เป็นประเภท BankAccount</div><div class="line">มธอด transfer_to(target, amount) โดยพารามิเตอร์ target คือบัญชีปลายทางที่เป็นอินสแตนซ์ของ BankAccount</div></div>
     <div class="q"><p>6) จงระบุ Invariant ของคลาส BankAccount มา 2 ข้อ <span class="pts">1 คะแนน</span></p>
-        <div class="line"></div></div>
+        <div class="line">ยอดเงินต้องไม่ติดลบ balance>0 และเงินในการทำธุรกรรมต้องเป็นค่าบวก amount>0 เสมอสำหรับการฝาก ถอน หรือโอนเงิน</div></div>
 
     <h2>ส่วนที่ 2: วิเคราะห์โค้ด (10 คะแนน)</h2>
 <pre class="code">
@@ -334,13 +334,16 @@ class BankAccount:
             raise ValueError("Amount must be positive.")
 </pre>
     <div class="q"><p>1) โค้ดส่วนใดป้องกันการฝากหรือถอนจำนวนติดลบและศูนย์ <span class="pts">2 คะแนน</span></p>
-        <div class="line"></div></div>
+        <div class="line">def _assert_positive(self, amount: float) -> None:
+    if amount <= 0:
+        raise ValueError("Amount must be positive.")</div></div>
     <div class="q"><p>2) เมื่อเรียก <code>deposit(300)</code> แล้วเรียก <code>withdraw(120)</code> ค่า balance จะเป็นเท่าใด จงแสดงวิธีทำ <span class="pts">3 คะแนน</span></p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">ยอดเริ่มต้นจาก __init__: self._balance = 0.0</div><div class="line">เมื่อเรียก deposit(300): balance = 0.0 + 300 = 300.0</div><div class="line">เมื่อเรียก withdraw(120) (ผ่านเงื่อนไข 120<300) balance = 300.0 - 120 = 180.0</div></div>
     <div class="q"><p>3) หากยอดคงเหลือ 180 แล้วเรียก <code>withdraw(500)</code> จะเกิดอะไรขึ้น เพราะโค้ดบรรทัดใด <span class="pts">3 คะแนน</span></p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">โปรแกรมจะหยุดทำงานและโยน Exception ชนิด InsufficientFundsError: Insufficient balance</div><div class="line">if amount > self._balance:
+    raise InsufficientFundsError("Insufficient balance.")</div></div>
     <div class="q"><p>4) หากภายนอกคลาสเขียนว่า <code>account.balance = 9999</code> จะเกิดผลใด เพราะเหตุใด <span class="pts">2 คะแนน</span></p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">เกิดข้อผิดพลาด AttributeError: can't set attribute (หรือ property 'balance' of 'BankAccount' object has no setter)</div><div class="line">เพราะมีตัวแปร balance ถูกสร้างด้วยเดคอเรเตอร์ @property เพียงอย่างเดียว</div></div>
 
     <h2>ส่วนที่ 3: เติมโค้ดในช่องว่าง (12 คะแนน)</h2>
 <pre class="code">
@@ -370,9 +373,9 @@ class BankAccount:
     <table>
         <thead><tr><th>ช่องที่</th><th>คำตอบ</th><th>ช่องที่</th><th>คำตอบ</th></tr></thead>
         <tbody>
-            <tr><td>(1)</td><td class="fill"></td><td>(4)</td><td class="fill"></td></tr>
-            <tr><td>(2)</td><td class="fill"></td><td>(5)</td><td class="fill"></td></tr>
-            <tr><td>(3)</td><td class="fill"></td><td>(6)</td><td class="fill"></td></tr>
+            <tr><td>(1)</td><td class="fill">InsufficientFundsError</td><td>(4)</td><td class="fill">-=</td></tr>
+            <tr><td>(2)</td><td class="fill">property</td><td>(5)</td><td class="fill">withdraw</td></tr>
+            <tr><td>(3)</td><td class="fill">self._balance</td><td>(6)</td><td class="fill">deposit</td></tr>
         </tbody>
     </table>
 
@@ -380,35 +383,35 @@ class BankAccount:
     <table>
         <thead><tr><th style="width:40%;">Test Case</th><th>ผลลัพธ์ที่คาดหวัง</th><th>ผลลัพธ์จริง</th><th style="width:10%;">ผ่าน?</th></tr></thead>
         <tbody>
-            <tr><td>a = BankAccount("STU-680001"); a.deposit(300)</td><td class="fill"></td><td class="fill"></td><td class="fill"></td></tr>
-            <tr><td>a.withdraw(120)</td><td class="fill"></td><td class="fill"></td><td class="fill"></td></tr>
-            <tr><td>a.withdraw(500)</td><td class="fill"></td><td class="fill"></td><td class="fill"></td></tr>
-            <tr><td>a.deposit(-50)</td><td class="fill"></td><td class="fill"></td><td class="fill"></td></tr>
-            <tr><td>b = BankAccount("STU-680002"); a.transfer_to(b, 100)</td><td class="fill"></td><td class="fill"></td><td class="fill"></td></tr>
-            <tr><td>a.balance = 9999 (ภายนอกคลาส)</td><td class="fill"></td><td class="fill"></td><td class="fill"></td></tr>
+            <tr><td>a = BankAccount("STU-680001"); a.deposit(300)</td><td class="fill">ฝากเงินสำเร็จ, balance = 300.0</td><td class="fill">ฝากเงินสำเร็จ, balance = 300.0</td><td class="fill">ผ่าน</td></tr>
+            <tr><td>a.withdraw(120)</td><td class="fill">ถอนเงินสำเร็จ, balance = 180.0</td><td class="fill">ถอนเงินสำเร็จ, balance = 180.0</td><td class="fill">ผ่าน</td></tr>
+            <tr><td>a.withdraw(500)</td><td class="fill">เกิด InsufficientFundsError: Insufficient balance.</td><td class="fill">InsufficientFundsError: Insufficient balance.</td><td class="fill">ผ่าน</td></tr>
+            <tr><td>a.deposit(-50)</td><td class="fill">เกิด ValueError: Amount must be positive.</td><td class="fill">ValueError: Amount must be positive.</td><td class="fill">ผ่าน</td></tr>
+            <tr><td>b = BankAccount("STU-680002"); a.transfer_to(b, 100)</td><td class="fill">โอนเงินสำเร็จ (a.balance = 80.0, b.balance = 100.0)</td><td class="fill">โอนสำเร็จ (a.balance = 80.0, b.balance = 100.0)</td><td class="fill">ผ่าน</td></tr>
+            <tr><td>a.balance = 9999 (ภายนอกคลาส)</td><td class="fill">เกิด AttributeError: can't set attribute</td><td class="fill">AttributeError: can't set attribute</td><td class="fill">ผ่าน</td></tr>
         </tbody>
     </table>
 
     <h2>ส่วนที่ 5: สะท้อนคิดเชิงออกแบบ OOAD (6 คะแนน)</h2>
     <div class="q"><p>1) คลาส BankAccount แสดงถึง Single Responsibility Principle อย่างไร <span class="pts">2 คะแนน</span></p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">คลาส BankAccount มีหน้าที่และเหตุผลในการเปลี่ยนแปลงเพียงเรื่องเดียว คือ การจัดการสถานะและกฎเกณฑ์ของบัญชีเงินฝาก</div><div class="line">คลาสไม่ได้ทำงานเกินขอบเขต เช่น ไม่ได้ยุ่งเกี่ยวกับระบบติดต่อผู้ใช้</div></div>
     <div class="q"><p>2) หลัก “Tell Don't Ask” หมายความว่าอย่างไร และเมธอด transfer_to สะท้อนหลักการนี้อย่างไร <span class="pts">2 คะแนน</span></p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">: แทนที่จะ "ถาม (Ask)" เอาข้อมูลหรือสถานะของอ็อบเจกต์ออกมาเพื่อตัดสินใจภายนอก เราควร "สั่ง (Tell)" ให้อ็อบเจกต์ทำ</div><div class="line">พฤติกรรมนั้นด้วยตัวเอง เพื่อรักษา Encapsulation แทนที่ผู้เรียกภายนอกจะคอยดึงยอดเงินมาเช็กเองแล้วคำนวณบวกลบ ตัวเมธอด transfer_to</div></div>
     <div class="q"><p>3) เหตุใดจึงควรสร้าง Domain Exception อย่าง InsufficientFundsError แทนการใช้ ValueError ทุกกรณี <span class="pts">2 คะแนน</span></p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">สื่อความหมายทางธุรกิจชัดเจน High Semantic Meaning ทำให้โค้ดอ่านเข้าใจง่าย</div><div class="line">การจัดการข้อผิดพลาดที่เฉพาะเจาะจง Granular Exception Handling ช่วยให้ระบบภายนอกเขียนบล็อก</div></div>
 
     <!-- Facilitator: Future -->
     <h2><span class="tag3f">Future</span> นำสิ่งค้นพบไปสู่อนาคต</h2>
     <div class="q"><p>1) ในโปรเจกต์ Python ถัดไปของคุณ ข้อมูลใดคือ “balance คนใหม่” (ห้ามพังเด็ดขาด) และคุณจะเขียน invariant ของมันว่าอย่างไร</p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">จำนวนสินค้าคงเหลือในคลัง (stock_quantity) ในระบบร้านค้า / E-commerce</div><div class="line">stock_quantity>0 (จำนวนสต็อกต้องเป็นจำนวนเต็มบวกหรือศูนย์เสมอ ห้ามติดลบ)</div><div class="line">reserved_quantity < stock_quantity(ยอดการจองต้องไม่เกินจำนวนสินค้าที่มีอยู่จริง)</div></div>
     <div class="q"><p>2) เขียน commitments สั้น ๆ 2 ข้อ เกี่ยวกับวิธีจัดการ “ความผิดพลาดทางธุรกิจ” ในโค้ดของคุณนับจากนี้</p>
-        <div class="line"></div><div class="line"></div></div>
+        <div class="line">ไม่ปล่อยให้ State สำคัญถูกแก้ไขตรงๆ: จะใช้ Private Attributes ร่วมกับ Property/Methods</div><div class="line">สร้าง Custom / Domain Exception เฉพาะทาง: จะเลิกใช้ Exception ทั่วไปอย่างคลุมเครือ และหันมาสร้างคลาส Exception</div></div>
 
     <!-- Coach: Reflect -->
     <div class="coach">
         <strong>🪞 มุมสะท้อนคิดของโค้ช:</strong>
         <div class="q"><p>ชมความพยายามของตัวเอง 1 เรื่อง แล้วบันทึก “คำถามที่ยังค้างอยู่ในหัวคุณ” เกี่ยวกับระบบเงินหรือระบบที่มีกฎเข้มงวด</p>
-            <div class="line"></div><div class="line"></div></div>
+            <div class="line">ภูมิใจที่ตัวเองสามารถทำความเข้าใจเรื่อง Encapsulation, Invariant และเชื่อมโยงหลักการออกแบบ OOAD เข้ากับการ</div><div class="line">ป้องกันข้อผิดพลาดในระบบจริง</div></div>
     </div>
 
     <h2>เกณฑ์การให้คะแนน</h2>

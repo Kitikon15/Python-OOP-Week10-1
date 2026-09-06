@@ -334,7 +334,8 @@ print(p.price)
 
         <div class="q">
             <p>1) ผลลัพธ์คืออะไร และเหตุใดโค้ดภายนอกจึงแก้ราคาได้โดยไม่ถูกทักท้วง</p>
-            <div class="line"> ผลลัพธ์ที่ได้ -500 เหตุผล ตัวภาษา Python ไม่มีระบบ Private Variable จึงทำให้สามารถถูกแก้ไขได้โดยไม่ถูกทักท้วง </div>
+            <div class="line"> ผลลัพธ์ที่ได้ -500 เหตุผล ตัวภาษา Python ไม่มีระบบ Private Variable
+                จึงทำให้สามารถถูกแก้ไขได้โดยไม่ถูกทักท้วง </div>
         </div>
         <div class="q">
             <p>2) หากต้องเลือก “จุดเดียว” ในคลาสเพื่อเฝ้าระวังราคา คุณจะเลือกจุดใด เพราะเหตุใด</p>
@@ -343,10 +344,13 @@ print(p.price)
         <div class="q">
             <p>3) ลองให้ AI เสนอวิธีป้องกันราคาติดลบใน Python มา 3 วิธี แล้วถกเถียงกับเพื่อน: วิธีใดน่าเชื่อถือที่สุด
                 เพราะเหตุผลใด (AI เชื่อถือได้มากน้อยเพียงใด?)</p>
-            <div class="line"> 1.ใช้ @property และ @price.setter ซ่อนตัวแปรจริงไว้เป็น Private (__price) แล้วกรองค่าผ่าน Setter </div>
-            <div class="line"> 2.สร้างคลาสเฉพาะขึ้นมาควบคุม Logic การตรวจข้อมูล เหมาะกับระบบที่มีหลายตัวแปรต้องตรวจ </div>
+            <div class="line"> 1.ใช้ @property และ @price.setter ซ่อนตัวแปรจริงไว้เป็น Private (__price) แล้วกรองค่าผ่าน
+                Setter </div>
+            <div class="line"> 2.สร้างคลาสเฉพาะขึ้นมาควบคุม Logic การตรวจข้อมูล เหมาะกับระบบที่มีหลายตัวแปรต้องตรวจ
+            </div>
             <div class="line"> 3.ใช้ Library ยอดนิยมในโปรดักชันเพื่อบังคับใช้ Type และเงื่อนไขผ่านสเปกของคลาส </div>
-            <div class="line"> ผมเชื่อในตัวการสร้างคลาสเฉพาะตัวเพื่อควบคุมตัว logic เพราะเพื่อให้สามารถตรวจสอบข้อมูลได้และสามารถทำได้หลายตัวแปร    </div>
+            <div class="line"> ผมเชื่อในตัวการสร้างคลาสเฉพาะตัวเพื่อควบคุมตัว logic
+                เพราะเพื่อให้สามารถตรวจสอบข้อมูลได้และสามารถทำได้หลายตัวแปร </div>
         </div>
 
         <!-- Teacher: Knowledge Box (5%) -->
@@ -399,7 +403,8 @@ classDiagram
             <p>1) สัญลักษณ์ <code>(property)</code> กำกับหลัง id, name, price หมายความว่าอย่างไรใน Python และแตกต่างจาก
                 attribute ปกติอย่างไร <span class="pts">2 คะแนน</span></p>
             <div class="line">property มีลักษณะคุณสมบัติหรือข้อมูลที่อยู่ใน object </div>
-            <div class="line">ที่แตกต่าง Attribute คือกล่องเก็บข้อมูลได้ตรงไม่มีระบบป้องกันแต่Property เป็นฟังก์ชันที่ปลอมตัวเป็นตัวแปรได้ </div>
+            <div class="line">ที่แตกต่าง Attribute คือกล่องเก็บข้อมูลได้ตรงไม่มีระบบป้องกันแต่Property
+                เป็นฟังก์ชันที่ปลอมตัวเป็นตัวแปรได้ </div>
         </div>
         <div class="q">
             <p>2) สัญลักษณ์ + และ - หน้าสมาชิกหมายถึงอะไร และการตั้งชื่อ <code>_validate_price</code> ด้วย underscore
@@ -411,7 +416,8 @@ classDiagram
         <div class="q">
             <p>3) เหตุใด <code>price</code> จึงอ่านได้แต่ไม่สามารถกำหนดค่าจากภายนอกได้ ใช้กลไกใดของ Python <span
                     class="pts">2 คะแนน</span></p>
-            <div class="line"> เพราะต้องการทำ Encapsulation ในการปกป้องข้อมูล เพื่อป้องกันการแอบแก้ไขราคาโดยไม่ผ่านการตรวจสอบความถูกต้อง </div>
+            <div class="line"> เพราะต้องการทำ Encapsulation ในการปกป้องข้อมูล
+                เพื่อป้องกันการแอบแก้ไขราคาโดยไม่ผ่านการตรวจสอบความถูกต้อง </div>
         </div>
         <div class="q">
             <p>4) จงระบุ Invariant ของคลาส Product มา 2 ข้อ <span class="pts">2 คะแนน</span></p>
@@ -465,31 +471,32 @@ class Product:
         <div class="q">
             <p>1) โค้ดบรรทัดใดป้องกันไม่ให้สร้างสินค้าที่มีราคาติดลบ <span class="pts">2 คะแนน</span></p>
             <div class="line">def _validate_price(self, price: float) -> float:
-        if price < 0:
-            raise ValueError("Price cannot be negative.")
-        return round(price, 2)</div>
-        </div>
-        <div class="q">
-            <p>2) เมื่อเรียก <code>Product(1, 'สมุดโน้ต', 45.00)</code> แล้วเรียก <code>apply_discount(10)</code> ค่า
-                price จะเป็นเท่าใด จงแสดงวิธีทำ <span class="pts">3 คะแนน</span></p>
-            <div class="line">ราคา price จะเหลือเท่ากับ 40.50 บาท</div>
-            <div class="line">เมื่อเรียกใช้เมธอด price หรือ display_price() จะได้ผลลัพธ์เป็น 40.50 สมุดโน้ต (#1) ราคา: 40.50 บาท </div>
-        </div>
-        <div class="q">
-            <p>3) หากเรียก <code>apply_discount(150)</code> จะเกิดอะไรขึ้น เพราะโค้ดบรรทัดใด <span class="pts">3
-                    คะแนน</span></p>
-            <div class="line">จะเกิด ValueError: Discount must be between 0 and 100</div>
-            <div class="line">if percent < 0 or percent > 100: raise ValueError("Discount must be between 0 and 100.")</div>
-        </div>
-        <div class="q">
-            <p>4) หากภายนอกคลาสเขียนว่า <code>product.price = -500</code> จะเกิดผลใด เพราะเหตุใด <span class="pts">2
-                    คะแนน</span></p>
-            <div class="line">AttributeError: can't set attribute 'price'</div>
-            <div class="line">สาเหตุที่ไม่สามารถเปลี่ยนค่าได้เกิดจากการใช้ Decorators @property</div>
-        </div>
+                if price < 0: raise ValueError("Price cannot be negative.") return round(price, 2)</div>
+            </div>
+            <div class="q">
+                <p>2) เมื่อเรียก <code>Product(1, 'สมุดโน้ต', 45.00)</code> แล้วเรียก <code>apply_discount(10)</code>
+                    ค่า
+                    price จะเป็นเท่าใด จงแสดงวิธีทำ <span class="pts">3 คะแนน</span></p>
+                <div class="line">ราคา price จะเหลือเท่ากับ 40.50 บาท</div>
+                <div class="line">เมื่อเรียกใช้เมธอด price หรือ display_price() จะได้ผลลัพธ์เป็น 40.50 สมุดโน้ต (#1)
+                    ราคา: 40.50 บาท </div>
+            </div>
+            <div class="q">
+                <p>3) หากเรียก <code>apply_discount(150)</code> จะเกิดอะไรขึ้น เพราะโค้ดบรรทัดใด <span class="pts">3
+                        คะแนน</span></p>
+                <div class="line">จะเกิด ValueError: Discount must be between 0 and 100</div>
+                <div class="line">if percent < 0 or percent> 100: raise ValueError("Discount must be between 0 and
+                        100.")</div>
+            </div>
+            <div class="q">
+                <p>4) หากภายนอกคลาสเขียนว่า <code>product.price = -500</code> จะเกิดผลใด เพราะเหตุใด <span class="pts">2
+                        คะแนน</span></p>
+                <div class="line">AttributeError: can't set attribute 'price'</div>
+                <div class="line">สาเหตุที่ไม่สามารถเปลี่ยนค่าได้เกิดจากการใช้ Decorators @property</div>
+            </div>
 
-        <h2>ส่วนที่ 3: เติมโค้ดในช่องว่าง (12 คะแนน)</h2>
-        <pre class="code">
+            <h2>ส่วนที่ 3: เติมโค้ดในช่องว่าง (12 คะแนน)</h2>
+            <pre class="code">
 class Product:
     def __init__(self, product_id: int, name: str, price: float):
         self._id = product_id
@@ -510,182 +517,190 @@ class Product:
             raise (4)____________________("Price cannot be negative.")
         return (5)________(price, 2)
 </pre>
-        <table>
-            <thead>
-                <tr>
-                    <th>ช่องที่</th>
-                    <th>คำตอบ</th>
-                    <th>ช่องที่</th>
-                    <th>คำตอบ</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>(1)</td>
-                    <td class="fill">property</td>
-                    <td>(4)</td>
-                    <td class="fill">ValueError</td>
-                </tr>
-                <tr>
-                    <td>(2)</td>
-                    <td class="fill">ValueError</td>
-                    <td>(5)</td>
-                    <td class="fill">round</td>
-                </tr>
-                <tr>
-                    <td>(3)</td>
-                    <td class="fill">100</td>
-                    <td>(6)</td>
-                    <td class="fill">_validate_price</td>
-                </tr>
-            </tbody>
-        </table>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ช่องที่</th>
+                        <th>คำตอบ</th>
+                        <th>ช่องที่</th>
+                        <th>คำตอบ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>(1)</td>
+                        <td class="fill">property</td>
+                        <td>(4)</td>
+                        <td class="fill">ValueError</td>
+                    </tr>
+                    <tr>
+                        <td>(2)</td>
+                        <td class="fill">ValueError</td>
+                        <td>(5)</td>
+                        <td class="fill">round</td>
+                    </tr>
+                    <tr>
+                        <td>(3)</td>
+                        <td class="fill">100</td>
+                        <td>(6)</td>
+                        <td class="fill">_validate_price</td>
+                    </tr>
+                </tbody>
+            </table>
 
-        <h2>ส่วนที่ 4: ทดสอบและบันทึกผล (12 คะแนน)</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th style="width:40%;">Test Case</th>
-                    <th>ผลลัพธ์ที่คาดหวัง</th>
-                    <th>ผลลัพธ์จริง</th>
-                    <th style="width:10%;">ผ่าน?</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>p = Product(1, 'สมุดโน้ต', 45.00) แล้ว p.display_price()</td>
-                    <td class="fill">p = สมุดโน้ต (#1) ราคา: 45.00 บาท</td>
-                    <td class="fill">สมุดโน้ต (#1) ราคา: 45.00 บาท</td>
-                    <td class="fill">ผ่าน</td>
-                </tr>
-                <tr>
-                    <td>p.apply_discount(10) แล้วดูค่า p.price</td>
-                    <td class="fill">40.5 (หรือ 40.50)</td>
-                    <td class="fill">40.5</td>
-                    <td class="fill">ผ่าน</td>
-                </tr>
-                <tr>
-                    <td>p.apply_discount(150)</td>
-                    <td class="fill">ValueError (Discount must be between 0 and 100.)</td>
-                    <td class="fill">ValueError</td>
-                    <td class="fill">ผ่าน</td>
-                </tr>
-                <tr>
-                    <td>p.apply_discount(-5)</td>
-                    <td class="fill">ValueError (Discount must be between 0 and 100.)</td>
-                    <td class="fill">ValueError</td>
-                    <td class="fill">ผ่าน</td>
-                </tr>
-                <tr>
-                    <td>Product(2, 'ปากกา', -10)</td>
-                    <td class="fill">ValueError (Price cannot be negative.)</td>
-                    <td class="fill">ValueError</td>
-                    <td class="fill">ผ่าน</td>
-                </tr>
-                <tr>
-                    <td>p.price = 999 (ภายนอกคลาส)</td>
-                    <td class="fill">AttributeError (can't set attribute / property 'price' of 'Product' object has no setter)</td>
-                    <td class="fill">AttributeError</td>
-                    <td class="fill">ผ่าน</td>
-                </tr>
-            </tbody>
-        </table>
+            <h2>ส่วนที่ 4: ทดสอบและบันทึกผล (12 คะแนน)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width:40%;">Test Case</th>
+                        <th>ผลลัพธ์ที่คาดหวัง</th>
+                        <th>ผลลัพธ์จริง</th>
+                        <th style="width:10%;">ผ่าน?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>p = Product(1, 'สมุดโน้ต', 45.00) แล้ว p.display_price()</td>
+                        <td class="fill">p = สมุดโน้ต (#1) ราคา: 45.00 บาท</td>
+                        <td class="fill">สมุดโน้ต (#1) ราคา: 45.00 บาท</td>
+                        <td class="fill">ผ่าน</td>
+                    </tr>
+                    <tr>
+                        <td>p.apply_discount(10) แล้วดูค่า p.price</td>
+                        <td class="fill">40.5 (หรือ 40.50)</td>
+                        <td class="fill">40.5</td>
+                        <td class="fill">ผ่าน</td>
+                    </tr>
+                    <tr>
+                        <td>p.apply_discount(150)</td>
+                        <td class="fill">ValueError (Discount must be between 0 and 100.)</td>
+                        <td class="fill">ValueError</td>
+                        <td class="fill">ผ่าน</td>
+                    </tr>
+                    <tr>
+                        <td>p.apply_discount(-5)</td>
+                        <td class="fill">ValueError (Discount must be between 0 and 100.)</td>
+                        <td class="fill">ValueError</td>
+                        <td class="fill">ผ่าน</td>
+                    </tr>
+                    <tr>
+                        <td>Product(2, 'ปากกา', -10)</td>
+                        <td class="fill">ValueError (Price cannot be negative.)</td>
+                        <td class="fill">ValueError</td>
+                        <td class="fill">ผ่าน</td>
+                    </tr>
+                    <tr>
+                        <td>p.price = 999 (ภายนอกคลาส)</td>
+                        <td class="fill">AttributeError (can't set attribute / property 'price' of 'Product' object has
+                            no setter)</td>
+                        <td class="fill">AttributeError</td>
+                        <td class="fill">ผ่าน</td>
+                    </tr>
+                </tbody>
+            </table>
 
-        <h2>ส่วนที่ 5: สะท้อนคิดเชิงออกแบบ OOAD (6 คะแนน)</h2>
-        <div class="q">
-            <p>1) คลาส Product แสดงถึง Single Responsibility Principle อย่างไร <span class="pts">2 คะแนน</span></p>
-            <div class="line">คลาส Product รับผิดชอบเฉพาะข้อมูลและพฤติกรรมของสินค้า เช่น เก็บข้อมูลสินค้า ตรวจสอบราคา และคำนวณส่วนลด</div>
-        </div>
-        <div class="q">
-            <p>2) Information Hiding ปรากฏอยู่ในจุดใดของคลาสนี้บ้าง จงยกตัวอย่างอย่างน้อย 2 จุด <span class="pts">2
-                    คะแนน</span></p>
-            <div class="line">ใช้ _id, _name และ _price เพื่อซ่อนข้อมูลภายใน</div>
-            <div class="line">price ใช้ @property โดยไม่มี setter ทำให้ภายนอกอ่านค่าได้ แต่กำหนดค่า price </div>
-        </div>
-        <div class="q">
-            <p>3) เทียบกับ PHP 8.4: กลไกใดของ PHP ที่เทียบเท่ากับ <code>@property</code> แบบไม่มี setter และเทียบเท่ากับ
-                <code>readonly</code> <span class="pts">2 คะแนน</span></p>
-            <div class="line">@property แบบไม่มี setter ใน Python ใกล้เคียงกับ Asymmetric Property Visibility</div>
-        </div>
-
-        <!-- Facilitator: Future -->
-        <h2><span class="tag3f">Future</span> นำสิ่งค้นพบไปสู่อนาคต</h2>
-        <div class="q">
-            <p>1) ในโปรเจกต์ Python ถัดไปของคุณ ข้อมูลใดคือ “price คนใหม่” (ห้ามพังเด็ดขาด) และคุณจะออกแบบให้มัน
-                “พลาดไม่ได้” อย่างไร</p>
-            <div class="line">ข้อมูลคือ ยอดเงินคงเหลือ (balance) เพราะไม่ควรติดลบโดยไม่มีเงื่อนไข ฉันจะเก็บเป็น _balance ใช้ @property สำหรับอ่านค่า และให้เปลี่ยนยอดเงินผ่าน method เช่น deposit() และ withdraw() </div>
-        </div>
-        <div class="q">
-            <p>2) เขียน commitments สั้น ๆ 2 ข้อ ที่จะเปลี่ยนวิธีเขียนโค้ดของคุณหลังจบใบงานนี้</p>
-            <div class="line">ก่อนสร้างคลาส ฉันจะกำหนดกฎหรือ Invariant</div>
-            <div class="line">ไม่เปิดให้แก้ข้อมูลสำคัญโดยตรง แต่จะใช้ property, validation และ method ควบคุมการแก้ไข</div>
-        </div>
-
-        <!-- Coach: Reflect -->
-        <div class="coach">
-            <strong>🪞 มุมสะท้อนคิดของโค้ช:</strong>
+            <h2>ส่วนที่ 5: สะท้อนคิดเชิงออกแบบ OOAD (6 คะแนน)</h2>
             <div class="q">
-                <p>ก่อนส่งใบงาน ชมความพยายามของตัวเอง 1 เรื่อง แล้วบันทึกว่า “คำถามใดที่ยังค้างอยู่ในหัวคุณ”</p>
-                <div class="line">สิ่งที่ชื่นชมตัวเอง : ฉันพยายามทำความเข้าใจว่าเหตุผลใดต้องซ่อนข้อมูล</div>
-                <div class="line">คำถาม : ถ้าคลาสมีข้อมูลสำคัญหลายตัว เราควรใช้ property ทุกตัวหรือเลือกใช้เฉพาะข้อมูล</div>
+                <p>1) คลาส Product แสดงถึง Single Responsibility Principle อย่างไร <span class="pts">2 คะแนน</span></p>
+                <div class="line">คลาส Product รับผิดชอบเฉพาะข้อมูลและพฤติกรรมของสินค้า เช่น เก็บข้อมูลสินค้า
+                    ตรวจสอบราคา และคำนวณส่วนลด</div>
             </div>
+            <div class="q">
+                <p>2) Information Hiding ปรากฏอยู่ในจุดใดของคลาสนี้บ้าง จงยกตัวอย่างอย่างน้อย 2 จุด <span class="pts">2
+                        คะแนน</span></p>
+                <div class="line">ใช้ _id, _name และ _price เพื่อซ่อนข้อมูลภายใน</div>
+                <div class="line">price ใช้ @property โดยไม่มี setter ทำให้ภายนอกอ่านค่าได้ แต่กำหนดค่า price </div>
+            </div>
+            <div class="q">
+                <p>3) เทียบกับ PHP 8.4: กลไกใดของ PHP ที่เทียบเท่ากับ <code>@property</code> แบบไม่มี setter
+                    และเทียบเท่ากับ
+                    <code>readonly</code> <span class="pts">2 คะแนน</span>
+                </p>
+                <div class="line">@property แบบไม่มี setter ใน Python ใกล้เคียงกับ Asymmetric Property Visibility</div>
+            </div>
+
+            <!-- Facilitator: Future -->
+            <h2><span class="tag3f">Future</span> นำสิ่งค้นพบไปสู่อนาคต</h2>
+            <div class="q">
+                <p>1) ในโปรเจกต์ Python ถัดไปของคุณ ข้อมูลใดคือ “price คนใหม่” (ห้ามพังเด็ดขาด) และคุณจะออกแบบให้มัน
+                    “พลาดไม่ได้” อย่างไร</p>
+                <div class="line">ข้อมูลคือ ยอดเงินคงเหลือ (balance) เพราะไม่ควรติดลบโดยไม่มีเงื่อนไข ฉันจะเก็บเป็น
+                    _balance ใช้ @property สำหรับอ่านค่า และให้เปลี่ยนยอดเงินผ่าน method เช่น deposit() และ withdraw()
+                </div>
+            </div>
+            <div class="q">
+                <p>2) เขียน commitments สั้น ๆ 2 ข้อ ที่จะเปลี่ยนวิธีเขียนโค้ดของคุณหลังจบใบงานนี้</p>
+                <div class="line">ก่อนสร้างคลาส ฉันจะกำหนดกฎหรือ Invariant</div>
+                <div class="line">ไม่เปิดให้แก้ข้อมูลสำคัญโดยตรง แต่จะใช้ property, validation และ method ควบคุมการแก้ไข
+                </div>
+            </div>
+
+            <!-- Coach: Reflect -->
+            <div class="coach">
+                <strong>🪞 มุมสะท้อนคิดของโค้ช:</strong>
+                <div class="q">
+                    <p>ก่อนส่งใบงาน ชมความพยายามของตัวเอง 1 เรื่อง แล้วบันทึกว่า “คำถามใดที่ยังค้างอยู่ในหัวคุณ”</p>
+                    <div class="line">สิ่งที่ชื่นชมตัวเอง : ฉันพยายามทำความเข้าใจว่าเหตุผลใดต้องซ่อนข้อมูล</div>
+                    <div class="line">คำถาม : ถ้าคลาสมีข้อมูลสำคัญหลายตัว เราควรใช้ property
+                        ทุกตัวหรือเลือกใช้เฉพาะข้อมูล</div>
+                </div>
+            </div>
+
+            <h2>เกณฑ์การให้คะแนน</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ส่วนที่</th>
+                        <th>เนื้อหา</th>
+                        <th>คะแนน</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>อ่านแผนภาพแล้วตอบคำถาม</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>วิเคราะห์โค้ด</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>เติมโค้ดในช่องว่าง</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>ทดสอบและบันทึกผล</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>สะท้อนคิดเชิงออกแบบ</td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><strong>รวม</strong></td>
+                        <td><strong>50</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="font-size:0.9rem; color:#475569;">* ส่วน Feeling / Sandbox / Future / มุมสะท้อนคิด ไม่ตัดคะแนน —
+                มีไว้เพื่อการเรียนรู้เท่านั้น</p>
+
+
+
         </div>
 
-        <h2>เกณฑ์การให้คะแนน</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>ส่วนที่</th>
-                    <th>เนื้อหา</th>
-                    <th>คะแนน</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>อ่านแผนภาพแล้วตอบคำถาม</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>วิเคราะห์โค้ด</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>เติมโค้ดในช่องว่าง</td>
-                    <td>12</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>ทดสอบและบันทึกผล</td>
-                    <td>12</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>สะท้อนคิดเชิงออกแบบ</td>
-                    <td>6</td>
-                </tr>
-                <tr>
-                    <td colspan="2"><strong>รวม</strong></td>
-                    <td><strong>50</strong></td>
-                </tr>
-            </tbody>
-        </table>
-        <p style="font-size:0.9rem; color:#475569;">* ส่วน Feeling / Sandbox / Future / มุมสะท้อนคิด ไม่ตัดคะแนน —
-            มีไว้เพื่อการเรียนรู้เท่านั้น</p>
-
-
-
-    </div>
-
-    <script>
-        mermaid.initialize({
-            startOnLoad: true,
-            theme: 'default',
-            securityLevel: 'loose'
-        });
-    </script>
+        <script>
+            mermaid.initialize({
+                startOnLoad: true,
+                theme: 'default',
+                securityLevel: 'loose'
+            });
+        </script>
 </body>
 
 </html>
